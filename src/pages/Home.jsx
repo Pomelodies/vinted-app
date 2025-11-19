@@ -45,27 +45,24 @@ const Home = () => {
                 <img src={element.owner.account.avatar.secure_url} />
                 <p>{element.owner.account.username}</p>
               </div>
-              {element.product_pictures.map((pictures) => {
-                // console.log(pictures);
-                return (
-                  <img
-                    src={pictures.secure_url}
-                    alt="clothes to be sold"
-                    key={pictures.asset_id}
-                  />
-                );
-              })}
+              <img
+                src={element.product_pictures[0].secure_url}
+                alt="clothes to be sold"
+              />
               <div className="product-details">
                 <p>{element.product_price} €</p>
-                {element.product_details.map((infos) => {
+                <p>{element.product_details[1].TAILLE}</p>
+                <p>{element.product_details[0].MARQUE}</p>
+                {/* {element.product_details.map((infos, index) => {
                   //   console.log(infos);
                   return (
                     <>
-                      <p>{infos.TAILLE}</p>
-                      <p>{infos.MARQUE}</p>
+                      <p key={"taille" + index}>{infos.TAILLE}</p>
+                      <p>🐸</p>
+                      <p key={"marque" + index}>{infos.MARQUE}</p>
                     </>
                   );
-                })}
+                })} */}
               </div>
             </article>
           );
