@@ -88,12 +88,12 @@ h1 {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
 }
 
 .container-main-home img {
-  width: 250px;
-  height: 350px;
+  height: 360px;
+  width: 230px;
   object-fit: cover;
 }
 
@@ -118,4 +118,14 @@ h1 {
 
 .container-main-home .product-details {
   color: #999999;
+}
+
+.offer {
+  width: 235px;
+  padding: 0 6px 16px;
+  cursor: pointer;
+}
+
+.price {
+  color: black;
 }

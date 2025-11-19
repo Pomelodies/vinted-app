@@ -50,19 +50,18 @@ const Home = () => {
                 alt="clothes to be sold"
               />
               <div className="product-details">
-                <p>{element.product_price} €</p>
-                <p>{element.product_details[1].TAILLE}</p>
-                <p>{element.product_details[0].MARQUE}</p>
-                {/* {element.product_details.map((infos, index) => {
+                <p className="price">{element.product_price} €</p>
+                {/* <p>{element.product_details[1].TAILLE}</p>
+                <p>{element.product_details[0].MARQUE}</p> */}
+                {element.product_details.map((infos, index) => {
                   //   console.log(infos);
                   return (
                     <>
                       <p key={"taille" + index}>{infos.TAILLE}</p>
-                      <p>🐸</p>
                       <p key={"marque" + index}>{infos.MARQUE}</p>
                     </>
                   );
-                })} */}
+                })}
               </div>
             </article>
           );
