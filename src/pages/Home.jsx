@@ -35,19 +35,41 @@ const Home = () => {
           <Link to="/offer">Go to Offer page</Link>
         </div>
       </div>
-      <div className="container">
+      <div className="container-main-home">
         {/* tableau.map() pour me sortir l'ensemble de mes articles */}
-        <article>
-          {console.log(data)}
-          <p>User</p> {/*owner.account.username*/}
-          <p>photo</p> {/*product_pictures.url*/}
-          <p>Prix €</p> {/*product_price*/}
-          <p>Taille</p> {/*product_details*/}
-          {/* faire un .map() car c'est un tableau ?*/}
-          <p>La marque</p>
-          {/*product_details*/}
-          {/* faire un .map() car c'est un tableau ?*/}
-        </article>
+        {data.offers.map((element) => {
+          //   console.log(element);
+          return (
+            <article className="offer" key={element._id}>
+              <div className="user">
+                <img src={element.owner.account.avatar.secure_url} />
+                <p>{element.owner.account.username}</p>
+              </div>
+              {element.product_pictures.map((pictures) => {
+                // console.log(pictures);
+                return (
+                  <img
+                    src={pictures.secure_url}
+                    alt="clothes to be sold"
+                    key={pictures.asset_id}
+                  />
+                );
+              })}
+              <div className="product-details">
+                <p>{element.product_price} €</p>
+                {element.product_details.map((infos) => {
+                  //   console.log(infos);
+                  return (
+                    <>
+                      <p>{infos.TAILLE}</p>
+                      <p>{infos.MARQUE}</p>
+                    </>
+                  );
+                })}
+              </div>
+            </article>
+          );
+        })}
       </div>
     </main>
   );
