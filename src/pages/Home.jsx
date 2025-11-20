@@ -32,7 +32,6 @@ const Home = () => {
             <h1>Prêts à faire du tri dans vos placards ?</h1>
             <button>Commencer à vendre</button>
           </aside>
-          <Link to="/offer">Go to Offer page</Link>
         </div>
       </div>
       <div className="container-main-home">

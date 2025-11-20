@@ -9,7 +9,6 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
-  const [userToken, setUserToken] = useState("");
   const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
@@ -58,7 +57,6 @@ const Signup = () => {
       // }
       const token = response.data.token;
       Cookies.set("userToken", token, { expires: 1 });
-      setUserToken(token);
       navigate("/");
     } catch (error) {
       console.log(error.response);
