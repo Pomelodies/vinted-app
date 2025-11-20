@@ -104,7 +104,9 @@ const Signup = () => {
           avoir au moins 18 ans.
         </p>
         <button className="sinscrire">S'inscrire</button>
-        <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+        <Link to="/login" className="account-already">
+          Tu as déjà un compte ? Connecte-toi !
+        </Link>
       </form>
     </div>
   );

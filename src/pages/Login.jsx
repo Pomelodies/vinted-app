@@ -71,7 +71,9 @@ const Login = () => {
         />
         <button className="se-connecter">Se connecter</button>
       </form>
-      <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
+      <Link to="/signup" className="no-account-yet">
+        Pas encore de compte ? Inscris-toi !
+      </Link>
     </div>
   );
 };
