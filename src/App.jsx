@@ -1,4 +1,5 @@
 import "./App.css";
+import Cookies from "js-cookie";
 
 // import de react-router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";

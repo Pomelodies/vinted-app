@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 const Signup = () => {
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
 
-  const handleNameChange = (event) => {
+  const handleUsernameChange = (event) => {
     const value = event.target.value;
-    setName(value);
+    setUsername(value);
   };
 
   const handleEmailChange = (event) => {
@@ -28,9 +29,36 @@ const Signup = () => {
     setNewsletter(value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(name, email, password, newsletter);
+    // console.log(username, email, password, newsletter); SailorMoon sailor-moon@mail.com Artemis true
+
+    //requête type POST Axios
+    try {
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        {
+          username: username,
+          email: email,
+          password: password,
+          newsletter: newsletter,
+        }
+      );
+      console.log(response.data);
+      //{
+      //     "_id": "691f265ec5938e80b955ff56",
+      //     "email": "sailor-moon1@mail.com",
+      //     "token": "Kopn4_SAGPFQCZWkdVfxgzCBqRLhBovy6ROvDkL1o2boIawbvfumoz7IlgP_o903",
+      //     "account": {
+      //         "username": "SailorMoon1"
+      //     }
+      // }
+      const token = response.data.token;
+      console.log(token);
+      Cookies.set("token", token);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
 
   return (
@@ -40,9 +68,9 @@ const Signup = () => {
         <input
           type="text"
           name="name"
-          value={name}
+          value={username}
           placeholder="Nom d'utilisateur"
-          onChange={handleNameChange}
+          onChange={handleUsernameChange}
         />
         <input
           type="email"
