@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
+  const [userToken, setUserToken] = useState("");
+  const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
     const value = event.target.value;
@@ -54,8 +57,9 @@ const Signup = () => {
       //     }
       // }
       const token = response.data.token;
-      console.log(token);
-      Cookies.set("token", token);
+      Cookies.set("userToken", token, { expires: 1 });
+      setUserToken(token);
+      navigate("/");
     } catch (error) {
       console.log(error.response);
     }
