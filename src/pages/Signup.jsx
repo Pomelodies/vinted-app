@@ -62,6 +62,7 @@ const Signup = () => {
       navigate("/");
     } catch (error) {
       console.log(error.response);
+      alert("Something went wrong! Please try again.");
     }
   };
 
@@ -71,7 +72,7 @@ const Signup = () => {
       <form onSubmit={handleSubmit} className="form-signup">
         <input
           type="text"
-          name="name"
+          name="username"
           value={username}
           placeholder="Nom d'utilisateur"
           onChange={handleUsernameChange}
@@ -104,7 +105,7 @@ const Signup = () => {
           Conditions et Politique de Confidentialité de Vinted. Je confirme
           avoir au moins 18 ans.
         </p>
-        <button>S'inscrire</button>
+        <button className="sinscrire">S'inscrire</button>
         <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
       </form>
     </div>

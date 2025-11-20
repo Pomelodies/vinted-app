@@ -178,3 +178,57 @@ h2 {
   font-size: 12px;
   color: #999999;
 }
+
+.sinscrire {
+  color: white;
+  background-color: #2cb1ba;
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+  font-size: 17px;
+  margin-top: 20px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------- LOG IN - FORM -----------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------ */
+
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 275px;
+}
+
+.login-form input::placeholder {
+  color: #d5cccd;
+  font-size: 17px;
+}
+
+.login-form input {
+  border: none;
+  border-bottom: 1px solid pink;
+  height: 40px;
+}
+
+.se-connecter {
+  color: white;
+  background-color: #2cb1ba;
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+  font-size: 17px;
+  margin-top: 20px;
+}
