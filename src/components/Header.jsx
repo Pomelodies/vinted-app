@@ -1,10 +1,10 @@
 import logo from "../assets/img/logo-vinted.png";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import { useState } from "react";
+// import { useState } from "react";
 
 const Header = () => {
-  const [userLogged, setUserLogged] = useState(false);
+  // const [userLogged, setUserLogged] = useState(false);
   return (
     <header>
       <div className="container">
@@ -18,7 +18,7 @@ const Header = () => {
             <button
               onClick={() => {
                 Cookies.remove("userToken");
-                setUserLogged(false);
+                // setUserLogged(false);
               }}
             >
               Se déconnecter
