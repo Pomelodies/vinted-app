@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 
 // import de react-router
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -9,14 +10,20 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 
 function App() {
+  const [isUserAuthenticated, setIsUserAuthenticated] = useState(null);
+
   return (
     <>
       <Router>
-        <Header />
+        <Header setIsUserAuthenticated={setIsUserAuthenticated} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/offers/:id" element={<Offer />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/signup"
+            element={<Signup />}
+            isUserAuthenticated={isUserAuthenticated}
+          />
           <Route path="/login" element={<Login />} />
         </Routes>
       </Router>

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 /* ------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------
@@ -5,8 +6,12 @@
 ------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------ */
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .container {
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -35,6 +40,17 @@ header img {
 .buttons {
   display: flex;
   gap: 20px;
+}
+
+.buttons .sinscrire,
+.buttons .seconnecter {
+  border: 1px solid #2cb1ba;
+  background-color: white;
+  color: #2cb1ba;
+  height: 30px;
+  width: 115px;
+  font-size: 12px;
+  border-radius: 5px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------
@@ -71,8 +87,18 @@ header img {
 }
 
 h1 {
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 35px;
+  width: 350px;
+}
+
+.start-to-sell {
+  color: white;
+  background-color: #2cb1ba;
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+  font-size: 17px;
+  margin-top: 20px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------
@@ -84,7 +110,7 @@ h1 {
 ------------------------------------------------------------------------------------------------------------------ */
 
 .container-main-home {
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -114,6 +140,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .container-main-home .product-details {
@@ -121,12 +148,15 @@ h1 {
 }
 
 .offer {
-  width: 235px;
-  padding: 0 6px 16px;
+  width: calc((100% - 40px) / 5);
 }
 
 .price {
   color: black;
+}
+
+.link-to-offer {
+  text-decoration: none;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------

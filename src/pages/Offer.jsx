@@ -47,7 +47,6 @@ const Offer = () => {
               })}
             </div>
           </div>
-
           <div></div>
         </aside>
       </div>

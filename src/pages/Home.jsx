@@ -30,7 +30,7 @@ const Home = () => {
         <div className="container">
           <aside className="ready-to-sort">
             <h1>Prêts à faire du tri dans vos placards ?</h1>
-            <button>Commencer à vendre</button>
+            <button className="start-to-sell">Commencer à vendre</button>
           </aside>
         </div>
       </div>
@@ -44,24 +44,26 @@ const Home = () => {
                 <img src={element.owner.account.avatar.secure_url} />
                 <p>{element.owner.account.username}</p>
               </div>
-              <img
-                src={element.product_pictures[0].secure_url}
-                alt="clothes to be sold"
-              />
-              <div className="product-details">
-                <p className="price">{element.product_price} €</p>
-                {/* <p>{element.product_details[1].TAILLE}</p>
+              <Link className="link-to-offer" to={`/offers/${element._id}`}>
+                <img
+                  src={element.product_pictures[0].secure_url}
+                  alt="clothes to be sold"
+                />
+                <div className="product-details">
+                  <p className="price">{element.product_price} €</p>
+                  {/* <p>{element.product_details[1].TAILLE}</p>
                 <p>{element.product_details[0].MARQUE}</p> */}
-                {element.product_details.map((infos, index) => {
-                  //   console.log(infos);
-                  return (
-                    <>
-                      <p key={"taille" + index}>{infos.TAILLE}</p>
-                      <p key={"marque" + index}>{infos.MARQUE}</p>
-                    </>
-                  );
-                })}
-              </div>
+                  {element.product_details.map((infos, index) => {
+                    //   console.log(infos);
+                    return (
+                      <>
+                        <p key={"taille" + index}>{infos.TAILLE}</p>
+                        <p key={"marque" + index}>{infos.MARQUE}</p>
+                      </>
+                    );
+                  })}
+                </div>
+              </Link>
             </article>
           );
         })}

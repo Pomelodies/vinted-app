@@ -4,7 +4,6 @@ import Cookies from "js-cookie";
 // import { useState } from "react";
 
 const Header = () => {
-  // const [userLogged, setUserLogged] = useState(false);
   return (
     <header>
       <div className="container">
@@ -16,9 +15,9 @@ const Header = () => {
         {Cookies.get("userToken") ? (
           <div className="userVerified">
             <button
-              onClick={() => {
+              onClick={(setIsUserAuthenticated) => {
                 Cookies.remove("userToken");
-                // setUserLogged(false);
+                setUserIsAuthenticated(null);
               }}
             >
               Se déconnecter
@@ -28,10 +27,10 @@ const Header = () => {
         ) : (
           <div className="buttons">
             <Link to="/signup">
-              <button>S'inscrire</button>
+              <button className="sinscrire">S'inscrire</button>
             </Link>
             <Link to="/login">
-              <button>Se connecter</button>
+              <button className="seconnecter">Se connecter</button>
             </Link>
 
             <button>Vends tes articles</button>
