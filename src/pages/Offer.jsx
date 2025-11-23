@@ -30,26 +30,66 @@ const Offer = () => {
         <aside>
           <div>
             <h3>{data.product_price}</h3>
-            <div>
+            <div className="brand">
+              <p>MARQUE</p>
+              {data.product_details.map((element) => {
+                return <>{element.MARQUE && <p>{element.MARQUE}</p>}</>;
+              })}
+            </div>
+            <div className="size">
+              <p>TAILLE</p>
+              {data.product_details.map((element) => {
+                return <>{element.TAILLE && <p>{element.TAILLE}</p>}</>;
+              })}
+            </div>
+            <div className="condition">
+              <p>ÉTAT</p>
+              {data.product_details.map((element) => {
+                return <>{element.ÉTAT && <p>{element.ÉTAT}</p>}</>;
+              })}
+            </div>
+            <div className="article-color">
+              <p>COULEUR</p>
+              {data.product_details.map((element) => {
+                return <>{element.COULEUR && <p>{element.COULEUR}</p>}</>;
+              })}
+            </div>
+            <div className="localisation">
+              <p>EMPLACEMENT</p>
               {data.product_details.map((element) => {
                 return (
-                  <div>
-                    <div>{element.MARQUE && <p>{element.MARQUE}</p>}</div>
-                    {element.TAILLE && <p>{element.TAILLE}</p>}
-                    {element.ETAT && <p>{element.ETAT}</p>}
-                    {element.COULEUR && <p>{element.COULEUR}</p>}
-                    {element.EMPLACEMENT && <p>{element.EMPLACEMENT}</p>}
+                  <>{element.EMPLACEMENT && <p>{element.EMPLACEMENT}</p>}</>
+                );
+              })}
+            </div>
+            <div className="payment-mode">
+              <p>MODES DE PAIEMENT</p>
+              {data.product_details.map((element) => {
+                return (
+                  <>
                     {element["MODES DE PAIEMENT"] && (
                       <p>{element["MODES DE PAIEMENT"]}</p>
                     )}
-                  </div>
+                  </>
                 );
               })}
             </div>
           </div>
-          <div></div>
+          <p>LINE DROITE</p>
+          <div>
+            <h2>{data.product_name}</h2>
+            <p>{data.product_description}</p>
+            <div>
+              <img
+                src={data.owner.account.avatar.secure_url}
+                alt="userprofile picture"
+              />
+              <p>{data.owner.account.username}</p>
+            </div>
+          </div>
         </aside>
       </div>
+      <div></div>
     </main>
   );
 };

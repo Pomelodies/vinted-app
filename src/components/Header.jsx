@@ -15,9 +15,9 @@ const Header = () => {
         {Cookies.get("userToken") ? (
           <div className="userVerified">
             <button
-              onClick={(setIsUserAuthenticated) => {
+              onClick={() => {
                 Cookies.remove("userToken");
-                setUserIsAuthenticated(null);
+                // setUserIsAuthenticated(null);
               }}
             >
               Se déconnecter
@@ -25,15 +25,19 @@ const Header = () => {
             <button>Vends tes articles</button>
           </div>
         ) : (
-          <div className="buttons">
-            <Link to="/signup">
-              <button className="sinscrire">S'inscrire</button>
-            </Link>
-            <Link to="/login">
-              <button className="seconnecter">Se connecter</button>
-            </Link>
+          <div className="buttons-aside">
+            <div className="connect-buttons">
+              <Link to="/signup">
+                <button className="sinscrire">S'inscrire</button>
+              </Link>
 
-            <button>Vends tes articles</button>
+              <Link to="/login">
+                <button className="seconnecter">Se connecter</button>
+              </Link>
+            </div>
+            <Link to="/sell">
+              <button className="sell-your-article">Vends tes articles</button>
+            </Link>
           </div>
         )}
       </div>

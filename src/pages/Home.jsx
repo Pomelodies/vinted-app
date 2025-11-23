@@ -51,16 +51,13 @@ const Home = () => {
                 />
                 <div className="product-details">
                   <p className="price">{element.product_price} €</p>
-                  {/* <p>{element.product_details[1].TAILLE}</p>
-                <p>{element.product_details[0].MARQUE}</p> */}
-                  {element.product_details.map((infos, index) => {
+                  {element.product_details.map((infos) => {
                     //   console.log(infos);
-                    return (
-                      <>
-                        <p key={"taille" + index}>{infos.TAILLE}</p>
-                        <p key={"marque" + index}>{infos.MARQUE}</p>
-                      </>
-                    );
+                    return <>{infos.TAILLE && <p>{infos.TAILLE}</p>}</>;
+                  })}
+                  {element.product_details.map((infos) => {
+                    //   console.log(infos);
+                    return <>{infos.MARQUE && <p>{infos.MARQUE}</p>}</>;
                   })}
                 </div>
               </Link>

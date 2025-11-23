@@ -16,7 +16,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
   height: 100%;
 }
 
@@ -37,20 +36,37 @@ header img {
   height: 30px;
 }
 
-.buttons {
+header .buttons-aside {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+header .connect-buttons {
   display: flex;
   gap: 20px;
 }
-
-.buttons .sinscrire,
-.buttons .seconnecter {
+header .buttons-aside .sinscrire,
+header .buttons-aside .seconnecter {
   border: 1px solid #2cb1ba;
   background-color: white;
   color: #2cb1ba;
-  height: 30px;
   width: 115px;
+  height: 30px;
   font-size: 12px;
   border-radius: 5px;
+  margin: 0px;
+}
+
+header .buttons-aside .sell-your-article {
+  background-color: #2cb1ba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 115px;
+  height: 30px;
+  font-size: 12px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------
@@ -66,6 +82,7 @@ header img {
   width: 100%;
   object-fit: cover;
   position: relative;
+  margin-bottom: 20px;
 }
 
 .ready-to-sort {
@@ -80,6 +97,7 @@ header img {
   position: absolute;
   top: 200px;
   padding-left: 20px;
+  box-shadow: 0 0 2px #1111113d;
 }
 
 .ready-to-sort > button {
@@ -129,6 +147,11 @@ h1 {
   align-items: center;
 }
 
+.user p {
+  color: #999999;
+  font-size: 12px;
+}
+
 .user img {
   border-radius: 50px;
   object-fit: cover;
@@ -140,7 +163,6 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 10px;
 }
 
 .container-main-home .product-details {
@@ -151,12 +173,25 @@ h1 {
   width: calc((100% - 40px) / 5);
 }
 
-.price {
+.product-details .price {
   color: black;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
 .link-to-offer {
   text-decoration: none;
+}
+
+.product-details p {
+  color: #999999;
+  font-size: 12px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------
