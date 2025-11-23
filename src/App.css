@@ -311,3 +311,112 @@ h2 {
   text-decoration: none;
   text-align: center;
 }
+
+/* ------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------- OFFER PAGE -----------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------ */
+
+.offer-container {
+  display: flex;
+  justify-content: center;
+  gap: 230px;
+  align-items: center;
+  background-color: #ebedee;
+  padding-top: 30px;
+  height: 100%;
+}
+
+.offer-container > img {
+  height: 600px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.offer-container aside {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 40px;
+  background-color: white;
+}
+
+.product-details-offer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+
+.brand,
+.size,
+.condition,
+.article-color,
+.localisation,
+.payment-mode {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #999999;
+}
+
+.brand p,
+.size p,
+.condition p,
+.article-color p,
+.localisation p,
+.payment-mode p {
+  font-weight: bold;
+  color: #666666;
+}
+
+.product-description-offer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px 0px;
+  border-top: 1px solid lightgray;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.product-description-offer p {
+  font-size: 16px;
+  color: #666666;
+}
+
+.product-description-offer img {
+  border-radius: 50px;
+  object-fit: cover;
+  height: 50px;
+  width: 50px;
+}
+
+.user-profile-offer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.offer-container aside > button {
+  background-color: #2cb1ba;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  height: 36px;
+  padding: 0 16px;
+  font-size: 16px;
+}
+
+aside > button:hover {
+  cursor: pointer;
+}
