@@ -45,7 +45,7 @@ const Publish = () => {
         formData,
         {
           headers: {
-            authorization: `Bearer ${token}`,
+            // authorization: `Bearer ${token}`,
           },
         }
       );

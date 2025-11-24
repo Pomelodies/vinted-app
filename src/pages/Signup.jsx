@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
@@ -55,12 +55,17 @@ const Signup = () => {
       //         "username": "SailorMoon1"
       //     }
       // }
-      const token = response.data.token;
-      Cookies.set("userToken", token, { expires: 1 });
-      navigate("/");
+      if (response.data.token) {
+        setUser(response.data.token);
+        navigate("/");
+        setErrorMessage("");
+      } else {
+        setErrorMessage("Un problème est survenu !");
+      }
     } catch (error) {
-      console.log(error.response);
-      alert("Something went wrong! Please try again.");
+      error.response
+        ? setErrorMessage(error.response.data.message)
+        : console.log(error);
     }
   };
 
@@ -82,6 +87,7 @@ const Signup = () => {
           placeholder="Email"
           onChange={handleEmailChange}
         />
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <input
           type="password"
           name="password"

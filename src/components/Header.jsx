@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 // import { useState } from "react";
 
-const Header = () => {
+const Header = ({ token, setUser }) => {
   return (
     <header>
       <div className="container">
@@ -12,18 +12,14 @@ const Header = () => {
             <img src={logo} alt="logo vinted" />
           </Link>
         </div>
-        {Cookies.get("userToken") ? (
-          <div className="userVerified">
-            <button
-              onClick={() => {
-                Cookies.remove("userToken");
-                // setUserIsAuthenticated(null);
-              }}
-            >
-              Se déconnecter
-            </button>
-            <button>Vends tes articles</button>
-          </div>
+        {token ? (
+          <button
+            onClick={() => {
+              setUser(null);
+            }}
+          >
+            Se déconnecter
+          </button>
         ) : (
           <div className="buttons-aside">
             <div className="connect-buttons">
@@ -35,11 +31,9 @@ const Header = () => {
                 <button className="seconnecter">Se connecter</button>
               </Link>
             </div>
-            <Link to="/publish">
-              <button className="sell-your-article">Vends tes articles</button>
-            </Link>
           </div>
         )}
+        <button>Vends tes articles</button>
       </div>
     </header>
   );
