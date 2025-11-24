@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import banner from "../assets/img/banner-hero.jpg";
+import neutralPp from "../assets/img/neutral-pp.jpg";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -41,7 +42,14 @@ const Home = () => {
           return (
             <article className="offer" key={element._id}>
               <div className="user">
-                <img src={element.owner.account.avatar.secure_url} />
+                {element.owner.account.avatar ? (
+                  <img
+                    src={element.owner.account.avatar.secure_url}
+                    alt="user profile picture"
+                  />
+                ) : (
+                  <img src={neutralPp} alt="neutral profile picture" />
+                )}
                 <p>{element.owner.account.username}</p>
               </div>
               <Link className="link-to-offer" to={`/offers/${element._id}`}>

@@ -420,3 +420,57 @@ h4 {
 aside > button:hover {
   cursor: pointer;
 }
+
+/* ------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------- PUBLISH PAGE -----------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------ */
+
+.container-publish {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.article-presentation,
+.article-presentation-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-presentation div,
+.article-presentation-details div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.photo-upload {
+  background-color: #d5cccd;
+  height: 250px;
+  width: 1260px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-upload > input {
+  display: none;
+}
+
+.article-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-price > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-price > div > div {
+  display: flex;
+  gap: 10px;
+}

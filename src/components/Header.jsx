@@ -35,7 +35,7 @@ const Header = () => {
                 <button className="seconnecter">Se connecter</button>
               </Link>
             </div>
-            <Link to="/sell">
+            <Link to="/publish">
               <button className="sell-your-article">Vends tes articles</button>
             </Link>
           </div>
