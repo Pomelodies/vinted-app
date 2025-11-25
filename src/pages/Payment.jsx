@@ -11,20 +11,20 @@ const stripePromise = loadStripe(
 const Payment = ({ token }) => {
   const location = useLocation();
   const { title, price } = location.state;
-  //   console.log(title.productName);
-  //   console.log(price.productPrice);
+  //   console.log(title);
+  //   console.log(price);
 
   // Calcul des montants à payer
-  const fraisProtection = price.productPrice * 0.1;
+  const fraisProtection = price * 0.1;
   //   console.log(fraisProtection);
-  const fraisDePort = price.productPrice * 0.2;
+  const fraisDePort = price * 0.2;
   //   console.log(fraisDePort);
-  const total = price.productPrice + fraisProtection + fraisDePort;
+  const total = price + fraisProtection + fraisDePort;
   //   console.log(total);
 
   const options = {
     mode: "payment",
-    amount: price.productPrice * 100,
+    amount: price * 100,
     currency: "eur",
     appearance: {
       /*...*/
@@ -56,14 +56,14 @@ const Payment = ({ token }) => {
           <p>{total.toFixed(2)} €</p>
         </div>
         <div>
-          Il ne vous reste plus qu'une étape pour vous offrir{" "}
-          {title.productName}. Vous allez payer {total.toFixed(2)}€ (frais de
-          protection et frais de port inclus).
+          Il ne vous reste plus qu'une étape pour vous offrir {title}. Vous
+          allez payer {total.toFixed(2)}€ (frais de protection et frais de port
+          inclus).
         </div>
       </section>
       <section>
         <Elements stripe={stripePromise} options={options}>
-          <CheckoutForm />
+          <CheckoutForm title={title} price={price} />
         </Elements>
       </section>
     </main>

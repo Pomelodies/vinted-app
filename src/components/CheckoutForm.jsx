@@ -6,7 +6,7 @@ import {
 import { useState } from "react";
 import axios from "axios";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ title, price }) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -29,11 +29,11 @@ const CheckoutForm = () => {
     const response = await axios.post(
       "https://lereacteur-vinted-api.herokuapp.com/v2/payment",
       {
-        title: "Sailor poudrier",
-        amount: 2000,
+        title: title,
+        amount: price * 100,
       }
     );
-    // console.log(response.data);
+    console.log(response.data);
     const clientSecret = response.data.client_secret;
 
     const stripeResponse = await stripe.confirmPayment({
@@ -60,7 +60,8 @@ const CheckoutForm = () => {
   ) : (
     <form onSubmit={handleSubmit}>
       <PaymentElement />
-      <button type="submit" disabled={!stripe || !elements || !isLoading}>
+      <button type="submit">
+        {/* <button type="submit" disabled={!stripe || !elements || !isLoading}> */}
         Pay
       </button>
       {errorMessage && <div>{errorMessage}</div>}
