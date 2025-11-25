@@ -27,45 +27,51 @@ const Payment = ({ token }) => {
     amount: price * 100,
     currency: "eur",
     appearance: {
-      /*...*/
+      theme: "night",
+      labels: "floating",
     },
   };
 
   return !token ? (
     <Navigate to="/login" />
   ) : (
-    <main>
-      <section>
-        <h5>Résumé de la commande</h5>
-        <div>
-          <p>Commande</p>
-          <p></p>
-        </div>
-        <div>
-          <p>Frais de protection acheteurs</p>
-          <p>{fraisProtection.toFixed(2)} €</p>
-        </div>
-        <div>
-          <p>Frais de port</p>
-          <p>{fraisDePort.toFixed(2)} €</p>
-        </div>
-      </section>
-      <section>
-        <div>
-          <p>Total</p>
-          <p>{total.toFixed(2)} €</p>
-        </div>
-        <div>
-          Il ne vous reste plus qu'une étape pour vous offrir {title}. Vous
-          allez payer {total.toFixed(2)}€ (frais de protection et frais de port
-          inclus).
-        </div>
-      </section>
-      <section>
-        <Elements stripe={stripePromise} options={options}>
-          <CheckoutForm title={title} price={price} />
-        </Elements>
-      </section>
+    <main className="container-payment">
+      <div>
+        <section className="basket-summary">
+          <h5>Résumé de la commande</h5>
+          <div>
+            <p>Commande</p>
+            <p>{price.toFixed(2)} €</p>
+          </div>
+          <div>
+            <p>Frais de protection acheteurs</p>
+            <p>{fraisProtection.toFixed(2)} €</p>
+          </div>
+          <div>
+            <p>Frais de port</p>
+            <p>{fraisDePort.toFixed(2)} €</p>
+          </div>
+        </section>
+        <section className="payment-total">
+          <div className="total">
+            <p>Total</p>
+            <p>{total.toFixed(2)} €</p>
+          </div>
+          <div>
+            <p>
+              Il ne vous reste plus qu'une étape pour vous offrir{" "}
+              <span>{title}</span>. Vous allez payer{" "}
+              <span>{total.toFixed(2)}€</span> (frais de protection et frais de
+              port inclus).
+            </p>
+          </div>
+        </section>
+        <section className="stripe-component">
+          <Elements stripe={stripePromise} options={options}>
+            <CheckoutForm title={title} price={price} />
+          </Elements>
+        </section>
+      </div>
     </main>
   );
 };

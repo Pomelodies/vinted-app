@@ -39,6 +39,8 @@ const Publish = ({ token }) => {
     //   console.log(pair[0] + ", " + pair[1]);
     // }
 
+    // console.log(token);
+
     //envoyer les infos via une requête axios en POST
     try {
       const response = await axios.post(
@@ -46,7 +48,7 @@ const Publish = ({ token }) => {
         formData,
         {
           headers: {
-            authorization: "Bearer" + token,
+            authorization: `Bearer ${token}`,
           },
         }
       );
