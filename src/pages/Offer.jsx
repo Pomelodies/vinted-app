@@ -95,7 +95,9 @@ const Offer = () => {
               <span>{data.owner.account.username}</span>
             </div>
           </div>
-          <button>Acheter</button>
+          <Link to="/payment">
+            <button className="to-buy">Acheter</button>
+          </Link>
         </aside>
       </div>
     </main>

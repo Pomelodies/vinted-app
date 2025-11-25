@@ -422,7 +422,7 @@ h4 {
   gap: 10px;
 }
 
-.offer-container aside > button {
+.offer-container aside .to-buy {
   background-color: #2cb1ba;
   color: white;
   border: none;
@@ -432,7 +432,7 @@ h4 {
   font-size: 16px;
 }
 
-aside > button:hover {
+aside .to-buy:hover {
   cursor: pointer;
 }
 

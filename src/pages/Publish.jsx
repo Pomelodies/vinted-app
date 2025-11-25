@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const Publish = ({ token }) => {
   const [picture, setPicture] = useState(null);
@@ -13,8 +13,6 @@ const Publish = ({ token }) => {
   const [localisation, setLocalisation] = useState("");
   const [price, setPrice] = useState("");
   const [swap, setSwap] = useState(false);
-
-  const navigate = useNavigate();
 
   // création d'une fonction handleChange qui sera utilisé dans chaque input
   const handleChange = (event, setState) => {
@@ -48,7 +46,7 @@ const Publish = ({ token }) => {
         formData,
         {
           headers: {
-            // authorization: `Bearer ${token}`,
+            authorization: "Bearer" + token,
           },
         }
       );
@@ -192,7 +190,7 @@ const Publish = ({ token }) => {
       </form>
     </div>
   ) : (
-    navigate("/login")
+    <Navigate to="/login" />
   );
 };
 
