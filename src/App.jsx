@@ -17,7 +17,7 @@ function App() {
   // fonction pour définir l'état d'authentification
   const setUser = (token) => {
     if (token) {
-      Cookies.set("userToken", token, { expire: 7 });
+      Cookies.set("userToken", token, { expires: 7 });
       setToken(token);
     } else {
       Cookies.remove("userToken");
@@ -34,7 +34,7 @@ function App() {
           <Route path="/offers/:id" element={<Offer />} />
           <Route path="/signup" element={<Signup setUser={setUser} />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
-          <Route path="/publish" element={<Publish />} />
+          <Route path="/publish" element={<Publish token={token} />} />
         </Routes>
       </Router>
     </>

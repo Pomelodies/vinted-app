@@ -13,13 +13,19 @@ const Header = ({ token, setUser }) => {
           </Link>
         </div>
         {token ? (
-          <button
-            onClick={() => {
-              setUser(null);
-            }}
-          >
-            Se déconnecter
-          </button>
+          <div className="buttons-aside">
+            <button
+              className="disconnect"
+              onClick={() => {
+                setUser(null);
+              }}
+            >
+              Se déconnecter
+            </button>
+            <Link to="/publish">
+              <button className="sell-your-article">Vends tes articles</button>
+            </Link>
+          </div>
         ) : (
           <div className="buttons-aside">
             <div className="connect-buttons">
@@ -31,9 +37,11 @@ const Header = ({ token, setUser }) => {
                 <button className="seconnecter">Se connecter</button>
               </Link>
             </div>
+            <Link to="/publish">
+              <button className="sell-your-article">Vends tes articles</button>
+            </Link>
           </div>
         )}
-        <button>Vends tes articles</button>
       </div>
     </header>
   );

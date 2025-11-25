@@ -31,7 +31,9 @@ const Home = () => {
         <div className="container">
           <aside className="ready-to-sort">
             <h1>Prêts à faire du tri dans vos placards ?</h1>
-            <button className="start-to-sell">Commencer à vendre</button>
+            <Link to="/publish">
+              <button className="start-to-sell">Commencer à vendre</button>
+            </Link>
           </aside>
         </div>
       </div>
