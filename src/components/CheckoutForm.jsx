@@ -30,14 +30,42 @@ const CheckoutForm = () => {
       "https://lereacteur-vinted-api.herokuapp.com/v2/payment",
       {
         title: "Sailor poudrier",
-        amount: 20,
+        amount: 2000,
       }
     );
-    console.log(response.data);
-    // const clientSecret = response.data.client_secret;
+    // console.log(response.data);
+    const clientSecret = response.data.client_secret;
+
+    const stripeResponse = await stripe.confirmPayment({
+      elements,
+      clientSecret,
+      confirmParams: {
+        return_url: "http://localhost:5173/",
+      },
+      redirect: "if_required",
+    });
+
+    // console.log(stripeResponse);
+    if (stripeResponse.error) {
+      setErrorMessage(stripeResponse.error.message);
+    }
+    if (stripeResponse.paymentIntent.status === "succeeded") {
+      setCompleted(true);
+    }
+    setIsLoading(false);
   };
 
-  return <></>;
+  return completed ? (
+    <p>Paiement effectué ! Vous recevrez votre commande sous peu.</p>
+  ) : (
+    <form onSubmit={handleSubmit}>
+      <PaymentElement />
+      <button type="submit" disabled={!stripe || !elements || !isLoading}>
+        Pay
+      </button>
+      {errorMessage && <div>{errorMessage}</div>}
+    </form>
+  );
 };
 
 export default CheckoutForm;

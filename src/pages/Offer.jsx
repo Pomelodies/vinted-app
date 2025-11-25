@@ -22,6 +22,9 @@ const Offer = () => {
     fetchData();
   }, [id]);
 
+  const productName = data.product_name;
+  const productPrice = data.product_price;
+
   return isLoading ? (
     <main>Data loading... please wait !</main>
   ) : (
@@ -95,7 +98,10 @@ const Offer = () => {
               <span>{data.owner.account.username}</span>
             </div>
           </div>
-          <Link to="/payment">
+          <Link
+            to="/payment"
+            state={{ title: { productName }, price: { productPrice } }}
+          >
             <button className="to-buy">Acheter</button>
           </Link>
         </aside>
